@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {Movie} from '../model/movie.model';
 import {HighlightDirective} from "../highlight.directive";
 
@@ -7,7 +7,10 @@ import {HighlightDirective} from "../highlight.directive";
   template: `
     <div appHighlight class="movie-item">
       <div>
-        <h4>{{ movie().title }}</h4>
+        <h4>
+          <span (click)="toggleFavorite.emit(movie())" [class.active]="isFavorite()" class="icon-star"></span>
+          {{ movie().title }}
+        </h4>
         <small class="subtitle">
           <span>Release date: {{ movie().release_date }}</span>
           <span>Budget: $ {{ movie().budget }} million</span>
@@ -25,4 +28,8 @@ import {HighlightDirective} from "../highlight.directive";
 })
 export class MovieItemComponent {
   movie = input.required<Movie>();
+
+  isFavorite = input<boolean>(false);
+  toggleFavorite = output<Movie>();
+
 }
