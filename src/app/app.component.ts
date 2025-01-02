@@ -3,6 +3,7 @@ import {MovieItemComponent} from './movie-item/movie-item.component';
 import {Movie} from './model/movie.model';
 import {MoviesService} from './services/movies.service';
 import {HighlightDirective} from './highlight.directive';
+import {FavoritesService} from "./services/favorites.service";
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ import {HighlightDirective} from './highlight.directive';
 })
 export class AppComponent {
 
+  protected favoriteService = inject(FavoritesService);
   protected movies: Signal<Movie[]> = inject(MoviesService).getMovies();
 
 }
