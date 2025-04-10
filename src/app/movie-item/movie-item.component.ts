@@ -27,6 +27,4 @@ import {HighlightDirective} from "../highlight.directive";
 })
 export class MovieItemComponent {
   movie = input.required<Movie>();
-  toggleFavorite = output<Movie>();
-  isFavorite = input<boolean>(false);
 }
