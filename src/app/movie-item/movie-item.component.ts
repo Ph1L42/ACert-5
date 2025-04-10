@@ -8,6 +8,12 @@ import {HighlightDirective} from "../highlight.directive";
     <div appHighlight class="movie-item">
       <div>
         <h4>
+          <span
+          class="icon-star"
+          [class.active]="isFavorite()"
+          (click)="toggleFavorite.emit(movie())"
+          >
+          </span>
           {{ movie().title }}
         </h4>
         <small class="subtitle">

@@ -3,6 +3,8 @@
     <app-movie-item
       [movie]="movie"
       appHighlight
+      (toggleFavorite)="favoritesService.toggleFavorite(movie)"
+      [isFavorite]="favoritesService.isFavorite(movie)"
     />
   }
 </div>

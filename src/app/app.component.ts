@@ -17,5 +17,6 @@ import {FavoritesService} from "./services/favorites.service";
 export class AppComponent {
 
   protected movies: Signal<Movie[]> = inject(MoviesService).getMovies();
+  protected favoritesService = inject(FavoritesService)
 
 }
